@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#101214" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Home Jobs" />
+  <title>Scott's Home Jobs</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow" id="todayLabel"></p>
+        <h1>Home Jobs</h1>
+        <p class="sub">Scott's responsibilities, in the order they matter.</p>
+      </div>
+      <button id="settingsBtn" class="icon-btn" aria-label="Edit tasks">⚙︎</button>
+    </header>
+
+    <section class="summary-grid">
+      <article class="summary-card">
+        <span class="summary-label">Done today</span>
+        <strong id="doneCount">0 / 0</strong>
+      </article>
+      <article class="summary-card accent">
+        <span class="summary-label">Up next</span>
+        <strong id="nextTime">—</strong>
+      </article>
+    </section>
+
+    <section class="panel" id="upNextPanel">
+      <div class="section-head">
+        <div>
+          <p class="kicker">RIGHT NOW</p>
+          <h2>Up next</h2>
+        </div>
+      </div>
+      <div id="upNext"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <p class="kicker">TODAY</p>
+          <h2>Daily routine</h2>
+        </div>
+        <button class="ghost-btn" id="resetTodayBtn">Reset</button>
+      </div>
+      <div id="dailyTasks" class="task-list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <p class="kicker">WEEKLY</p>
+          <h2>Weekend prep</h2>
+        </div>
+      </div>
+      <div id="weeklyTasks" class="task-list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <p class="kicker">ONGOING</p>
+          <h2>House + admin</h2>
+        </div>
+      </div>
+      <div id="ongoingTasks" class="task-list"></div>
+    </section>
+
+    <footer>
+      <p>Saved on this device. Daily items reset each new day; weekly items reset each Monday.</p>
+    </footer>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form method="dialog" class="dialog-card" id="settingsForm">
+      <div class="dialog-head">
+        <div>
+          <p class="kicker">CUSTOMISE</p>
+          <h2>Edit responsibilities</h2>
+        </div>
+        <button value="cancel" class="icon-btn" aria-label="Close">×</button>
+      </div>
+
+      <div id="editorRows" class="editor-rows"></div>
+
+      <div class="dialog-actions">
+        <button type="button" class="secondary-btn" id="addTaskBtn">+ Add task</button>
+        <button type="button" class="secondary-btn" id="restoreBtn">Restore defaults</button>
+        <button value="default" class="primary-btn" id="saveBtn">Save changes</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
